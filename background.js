@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	}
 	
 	// If volume is default disable everything.
-	if (request.volume === 100) {
+	if (request.volume == 100) {
 		if (tabs[request.id].audioContext !== undefined) {
 			tabs[request.id].audioContext.close();
 		}

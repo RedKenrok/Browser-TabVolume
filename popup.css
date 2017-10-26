@@ -4,15 +4,18 @@ body {
 	--white-dark: #e0e0e0;
 	--grey: #808080;
 	--grey-dark: #707070;
+	
+	display: inline-block;
+	width: 288px;
 }
 body > * {
-	margin: 8px auto 0 auto;
+	margin: 0 auto;
 }
 
 form {
+	display: inline-block;
 	height: auto;
 	width: 256px;
-	justify-content: space-between;
 	white-space: nowrap;
 }
 form > * {
@@ -23,19 +26,20 @@ form > * {
 	vertical-align: middle;
 }
 form > input[type=number] {
-	width: 62px;
+	width: 64px;
 	text-align: right;
 	
 	border: solid 1px var(--white-off);
 }
 form > input[type=range] {
 	height: 8px;
-	width: 190px;
+	width: 192px;
 	
+	-webkit-appearance: none;
 	background-color: var(--white-off);
 	border-radius: 8px;
 	
-    -webkit-appearance: none;
+	transition: all 0.2s ease-in-out;
 }
 form > input[type=range]:focus {
 	outline: 0;
@@ -45,16 +49,39 @@ form > input[type=range]:hover {
 }
 form input[type=range]::-webkit-slider-thumb {
 	height: 16px;
-	width: 24px;
+	width: 16px;
 	z-index: 2000;
 	
+	-webkit-appearance: none;
 	background-color: var(--grey);
 	border-radius: 8px;
-	
 	cursor: pointer;
 	
-    -webkit-appearance: none;
+	transition: all 0.2s ease-in-out;
 }
 form > input[type=range]:hover::-webkit-slider-thumb {
 	background-color: var(--grey-dark);
+}
+
+button {
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	padding: 0;
+	border: 0;
+	margin-left: 4px;
+	
+	-webkit-appearance: none;
+	background-color: var(--white-off);
+	border-radius: 12px;
+	color: var(--grey);
+	
+	transition: all 0.2s ease-in-out;
+}
+button:hover {
+	background-color: var(--white-dark);
+	color: var(--grey-dark);
+}
+button:focus {
+	outline: 0;
 }
