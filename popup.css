@@ -2,7 +2,8 @@ body {
 	--white: #fff;
 	--white-off: #f0f0f0;
 	--white-dark: #e0e0e0;
-	--grey: #808080;
+	--grey-light: #a0a0a0;
+	--grey: #707070;
 	--black: #000;
 	
 	display: inline-block;
@@ -32,25 +33,21 @@ form > input[type=number] {
 	
 	font-weight: bold;
 	
-	border: solid 1px var(--white-off);
+	border: solid 1px var(--white-dark);
+	border-radius: 4px;
 	color: var(--grey);
 }
-form > input[type=number]:hover {
-	color: var(--black);
-	border: solid 1px var(--white-dark);
-}
 form > input[type=number]:focus {
-	color: var(--black);
-	border: solid 1px var(--white-dark);
+	border: solid 1px transparent;
 }
 
 form > input[type=range] {
 	height: 8px;
-	width: 208px;
+	width: 200px;
+	margin: 0 4px 0 4px;
 	
 	-webkit-appearance: none;
-	background-color: var(--white-off);
-	border-radius: 8px;
+	border-radius: 4px;
 	
 	transition: all 0.2s ease-in-out;
 }
@@ -58,22 +55,17 @@ form > input[type=range]:focus {
 	outline: 0;
 }
 form > input[type=range]:hover {
-	background-color: var(--white-dark);
+	background-color: var(--white-off);
 }
 form input[type=range]::-webkit-slider-thumb {
-	height: 18px;
-	width: 12px;
+	height: 20px;
+	width: 8px;
 	z-index: 2000;
 	
 	-webkit-appearance: none;
 	background-color: var(--grey);
-	border-radius: 6px;
+	border-radius: 4px;
 	cursor: pointer;
-	
-	transition: all 0.2s ease-in-out;
-}
-form > input[type=range]:hover::-webkit-slider-thumb {
-	background-color: var(--black);
 }
 
 button {
@@ -81,22 +73,21 @@ button {
 	height: 24px;
 	width: 24px;
 	padding: 0;
-	border: 0;
 	margin-left: 4px;
+	border: 0;
 	vertical-align: middle;
 	
 	font-weight: bold;
 	
 	-webkit-appearance: none;
-	background-color: var(--white-off);
-	border-radius: 8px;
+	background-color: transparent;
+	border-radius: 4px;
 	color: var(--grey);
 	
 	transition: all 0.2s ease-in-out;
 }
 button:hover {
-	background-color: var(--white-dark);
-	color: var(--black);
+	background-color: var(--white-off);
 }
 button:focus {
 	outline: 0;
