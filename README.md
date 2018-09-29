@@ -1,4 +1,4 @@
-# Tab volume
+# Tab Volume
 
 Tab volume allows you to control volume levels per tab in in the browser. The volume levels are mapped exponentially this means 50 is a gain of 0.25, 100 is a gain of 1, and 200 is a gain of 4. It remembers previously selected volume levels for each domain and use those when activating the pop-up again.
 
@@ -33,7 +33,8 @@ Then install the add-on to your browser.
 On Google Chrome:
 1. Go to `chrome://extensions` using the URL bar.
 2. In the top right enable `Developer mode`.
-3. Click on `Load unpacked`, navigate to the location of the repository. Then select the `src` directory and click on `ok`.
+3. Click on `Load unpacked`, navigate to the location of the repository.
+4. Select the `src` directory and click on `ok`.
 
 ## License
 
