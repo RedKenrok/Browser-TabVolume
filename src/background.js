@@ -1,8 +1,11 @@
+// Get platform specific interface object.
+let platform = chrome ? chrome : browser;
+
 // Per tab data.
-let tabs = {};
+const tabs = [];
 
 // On runtime message received.
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+platform.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	// Setup empty object if not called previously.
 	if (tabs[request.id] === undefined) {
 		tabs[request.id] = {};
@@ -31,7 +34,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		// Get audio context.
 		tabs[request.id].audioContext = new (window.AudioContext || window.webkitAudioContext)();
 		// Start tab audio capture.
-		chrome.tabCapture.capture({ audio: true, video: false }, function(stream) {
+		platform.tabCapture.capture({ audio: true, video: false }, function(stream) {
 			if (stream === null) {
 				tabs[request.id].audioContext.close();
 				tabs[request.id].audioContext = undefined;

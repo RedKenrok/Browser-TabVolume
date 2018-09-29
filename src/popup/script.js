@@ -1,6 +1,9 @@
+// Get platform specific interface object.
+let platform = chrome ? chrome : browser;
+
 // Setup extension.
 document.addEventListener('DOMContentLoaded', function() {
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+	platform.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		// Get domain.
 		let domain = tabs[0].url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1];
 		
@@ -18,27 +21,27 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 				
 				// Set volume level of tab.
-				chrome.runtime.sendMessage({ id: tabs[0].id, volume: this.value });
+				platform.runtime.sendMessage({ id: tabs[0].id, volume: this.value });
 				// Store value level.
 				let items = {};
 				items[domain] = this.value;
-				chrome.storage.sync.set(items);
+				platform.storage.sync.set(items);
 			});
 		}
 		// Add button click event.
 		document.getElementById('stop').addEventListener('click', function() {
 			// Set volume to default 100 to disable the system.
-			chrome.runtime.sendMessage( {id: tabs[0].id, volume: 100 });
+			platform.runtime.sendMessage( {id: tabs[0].id, volume: 100 });
 			// Exit the window.
 			window.close();
 		});
 		
 		// Get volume level from storage.
-		chrome.storage.sync.get(domain, function(items) {
+		platform.storage.sync.get(domain, function(items) {
 			// Apply volume level.
 			let volume = items[domain];
 			if (volume) {
-				chrome.runtime.sendMessage({ id: tabs[0].id, volume: volume });
+				platform.runtime.sendMessage({ id: tabs[0].id, volume: volume });
 			}
 			// If no volume level given set default of 100.
 			else {

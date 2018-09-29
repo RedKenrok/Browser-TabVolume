@@ -1,22 +1,26 @@
 body {
 	--white: #fff;
-	--white-off: #f0f0f0;
-	--white-dark: #e0e0e0;
-	--grey-light: #a0a0a0;
-	--grey: #707070;
-	--black: #000;
+	--grey-lighter: #f1f3f4;
+	--grey-light: #dee1e6;
+	--grey: #babcbe;
+	--grey-dark: #80868b;
+	--grey-darker: #5f6368;
+	--black: #202124;
 	
 	display: inline-block;
 	width: 288px;
 }
 body > * {
 	margin: 0 auto;
+	
+	color: var(--grey-dark);
 }
 
 form {
 	display: inline-block;
 	height: auto;
 	width: 256px;
+	
 	white-space: nowrap;
 }
 form > * {
@@ -25,6 +29,8 @@ form > * {
 	padding: 0;
 	margin: 0;
 	vertical-align: middle;
+	
+	color: var(--grey-dark);
 }
 
 form > input[type=number] {
@@ -33,9 +39,8 @@ form > input[type=number] {
 	
 	font-weight: bold;
 	
-	border: solid 1px var(--white-dark);
-	border-radius: 4px;
-	color: var(--grey);
+	border: solid 1px var(--grey-light);
+	border-radius: 8px;
 }
 form > input[type=number]:focus {
 	border: solid 1px transparent;
@@ -47,25 +52,32 @@ form > input[type=range] {
 	margin: 0 4px 0 4px;
 	
 	-webkit-appearance: none;
+	
+	background-color: var(--grey-lighter);
 	border-radius: 4px;
 	
-	transition: all 0.2s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 form > input[type=range]:focus {
 	outline: 0;
 }
 form > input[type=range]:hover {
-	background-color: var(--white-off);
+	background-color: var(--grey-light);
 }
 form input[type=range]::-webkit-slider-thumb {
-	height: 20px;
-	width: 8px;
+	height: 16px;
+	width: 16px;
 	z-index: 2000;
 	
 	-webkit-appearance: none;
-	background-color: var(--grey);
-	border-radius: 4px;
-	cursor: pointer;
+	
+	background-color: var(--grey-dark);
+	border-radius: 8px;
+	
+	transition: all 0.1s ease-in-out;
+}
+form input[type=range]::-webkit-slider-thumb:hover {
+	background-color: var(--grey-darker);
 }
 
 button {
@@ -77,17 +89,17 @@ button {
 	border: 0;
 	vertical-align: middle;
 	
-	font-weight: bold;
-	
 	-webkit-appearance: none;
+	
 	background-color: transparent;
-	border-radius: 4px;
-	color: var(--grey);
+	border-radius: 12px;
+	
+	font-weight: bold;
 	
 	transition: all 0.2s ease-in-out;
 }
 button:hover {
-	background-color: var(--white-off);
+	background-color: var(--grey-lighter);
 }
 button:focus {
 	outline: 0;
